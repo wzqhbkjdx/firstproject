@@ -5,13 +5,15 @@ import java.util.List;
 import com.agile.news.R;
 import com.agile.news.base.CGBaseAdapter;
 import com.agile.news.bean.NewsListBean.News;
+import com.agile.news.utils.CommonUtil;
+import com.agile.news.utils.SharePrefUtil;
 import com.lidroid.xutils.BitmapUtils;
 
-
 import android.content.Context;
+import android.provider.SyncStateContract.Constants;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HeterogeneousExpandableList;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,6 +37,7 @@ public class NewsAdapter extends CGBaseAdapter<News, ListView>{
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder = null;
 		News news = list.get(position);
+		
 		if(convertView == null){
 			holder = new ViewHolder();
 			convertView = View.inflate(context, R.layout.layout_news_item, null);
@@ -46,10 +49,58 @@ public class NewsAdapter extends CGBaseAdapter<News, ListView>{
 		}else{
 			holder = (ViewHolder) convertView.getTag();
 		}
+		
 		if(news.isRead){
 			holder.title.setTextColor(context.getResources().getColor(R.color.news_item_has_read_textcolor));
 		}else {
 			holder.title.setTextColor(context.getResources().getColor(R.color.news_item_no_read_textcolor));
+		}
+		
+		holder.title.setText(news.title);
+		holder.pub_date.setText(news.pubdate);
+		
+		if(news.comment){
+			holder.comment_count.setVisibility(View.VISIBLE);
+			if(news.commentcount > 0){
+				holder.comment_count.setText(news.commentcount + "");
+			}else{
+				holder.comment_count.setText("");
+			}
+		}else{
+			holder.comment_count.setVisibility(View.INVISIBLE);
+		}
+		
+		if(type == 0){
+			if(TextUtils.isEmpty(news.listimage)){
+				holder.iv.setVisibility(View.GONE);
+			}else{
+				int read_model = SharePrefUtil.getInt(context,
+						Constants.READ_MODEL, 1);
+				switch (read_model) {
+				case 1:
+					int type = CommonUtil.isNetworkAvailable(context);
+					if(type==1){
+						holder.iv.setVisibility(View.VISIBLE);
+						bitmapUtils.display(holder.iv, news.listimage);
+					}else{
+						holder.iv.setVisibility(View.GONE);
+					}
+					break;
+				case 2:
+					holder.iv.setVisibility(View.VISIBLE);
+					bitmapUtils.display(holder.iv, news.listimage);
+					break;
+				case 3:
+					holder.iv.setVisibility(View.GONE);
+					break;
+
+				default:
+					break;
+				}
+			}
+			
+		}else{
+			holder.iv.setVisibility(View.GONE);
 		}
 		
 		return null;
