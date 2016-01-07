@@ -9,8 +9,8 @@ import android.widget.BaseAdapter;
 
 public abstract class CGBaseAdapter<T, Q> extends BaseAdapter {
 	
-	private Context context;
-	private List<T> list;
+	protected Context context;
+	protected List<T> list;
 	private Q view;
 	
 	public CGBaseAdapter() {

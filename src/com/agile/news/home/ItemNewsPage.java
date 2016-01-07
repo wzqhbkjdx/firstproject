@@ -10,6 +10,7 @@ import com.agile.news.bean.NewsListBean;
 import com.agile.news.bean.NewsListBean.News;
 import com.agile.news.bean.NewsListBean.TopNews;
 import com.agile.news.pullrefreshview.PullToRefreshListView;
+import com.agile.news.view.RollViewPager;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 import android.content.Context;
