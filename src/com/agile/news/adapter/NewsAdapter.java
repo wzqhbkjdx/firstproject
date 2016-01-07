@@ -11,6 +11,7 @@ import com.lidroid.xutils.BitmapUtils;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HeterogeneousExpandableList;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,6 +42,14 @@ public class NewsAdapter extends CGBaseAdapter<News, ListView>{
 			holder.title = (TextView) convertView.findViewById(R.id.tv_title);
 			holder.pub_date = (TextView) convertView.findViewById(R.id.tv_pub_date);
 			holder.comment_count = (TextView) convertView.findViewById(R.id.tv_comment_count);
+			convertView.setTag(holder);
+		}else{
+			holder = (ViewHolder) convertView.getTag();
+		}
+		if(news.isRead){
+			holder.title.setTextColor(context.getResources().getColor(R.color.news_item_has_read_textcolor));
+		}else {
+			holder.title.setTextColor(context.getResources().getColor(R.color.news_item_no_read_textcolor));
 		}
 		
 		return null;
