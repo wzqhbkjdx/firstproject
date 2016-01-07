@@ -40,7 +40,7 @@ public class NewsAdapter extends CGBaseAdapter<News, ListView>{
 			holder.iv = (ImageView) convertView.findViewById(R.id.iv_img);
 			holder.title = (TextView) convertView.findViewById(R.id.tv_title);
 			holder.pub_date = (TextView) convertView.findViewById(R.id.tv_pub_date);
-			
+			holder.comment_count = (TextView) convertView.findViewById(R.id.tv_comment_count);
 		}
 		
 		return null;
