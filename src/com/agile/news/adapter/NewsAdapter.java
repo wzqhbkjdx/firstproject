@@ -6,11 +6,11 @@ import com.agile.news.R;
 import com.agile.news.base.CGBaseAdapter;
 import com.agile.news.bean.NewsListBean.News;
 import com.agile.news.utils.CommonUtil;
+import com.agile.news.utils.Constants;
 import com.agile.news.utils.SharePrefUtil;
 import com.lidroid.xutils.BitmapUtils;
 
 import android.content.Context;
-import android.provider.SyncStateContract.Constants;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,7 +103,7 @@ public class NewsAdapter extends CGBaseAdapter<News, ListView>{
 			holder.iv.setVisibility(View.GONE);
 		}
 		
-		return null;
+		return convertView;
 	}
 	
 	class ViewHolder{
