@@ -67,7 +67,7 @@ public class ItemNewsPage extends BasePage{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				
-//				Intent intent = new Intent(context,NewsDetailActivity.class);
+				Intent intent = new Intent(context,NewsDetailActivity.class);
 				
 			}
 		});
