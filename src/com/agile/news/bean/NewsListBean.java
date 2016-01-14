@@ -2,7 +2,7 @@ package com.agile.news.bean;
 
 import java.util.ArrayList;
 
-public class NewsListBean {
+public class NewsListBean extends BaseBean {
 	public NewsList data;
 	public static class NewsList{
 		public String more;
