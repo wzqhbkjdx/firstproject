@@ -29,7 +29,7 @@ public abstract class BasePage implements OnClickListener{
 	@ViewInject(R.id.loading_view)
 	private View loadingView;
 	private LinearLayout loadingfailView;
-	private SlidingMenu slidingMenu;
+	protected SlidingMenu slidingMenu;
 	private Button leftBtn;
 	private ImageButton rightBtn;
 	private ImageButton leftImgBtn;

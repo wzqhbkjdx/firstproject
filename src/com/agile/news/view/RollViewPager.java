@@ -90,7 +90,7 @@ public class RollViewPager extends ViewPager{
 				downP.y = event.getY();
 				long duration = System.currentTimeMillis() - start;
 				if(duration <= 500 && downP.x == curP.x) {
-					onpagerClickCallback.onPageerClick(currentItem);
+					onpagerClickCallback.onPagerClick(currentItem);
 				}else {
 					
 				}
@@ -151,7 +151,7 @@ public class RollViewPager extends ViewPager{
 	}
 
 	private boolean hasSetAdapter = false;
-	protected void startRoll() {
+	public void startRoll() {
 		if(!hasSetAdapter) {
 			hasSetAdapter = true;
 			this.setOnPageChangeListener(new MyOnPageChangeListener());
@@ -279,7 +279,7 @@ public class RollViewPager extends ViewPager{
 	
 	
 	public interface OnpagerClickCallback {
-		public abstract void onPageerClick(int position);
+		public abstract void onPagerClick(int position);
 	}
 	
 	// @Override
