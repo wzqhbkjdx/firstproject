@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <com.qianlong.android.view.pullrefreshview.PullToRefreshListView
+        <com.agile.news.pullrefreshview.PullToRefreshListView
             android:id="@+id/lv_topic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

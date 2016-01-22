@@ -27,16 +27,12 @@ public abstract class BaseFragment extends Fragment implements OnClickListener{
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
 		super.onCreate(savedInstanceState);
 		context = getActivity();
-		
-		//slidingMenu = ((MainActivity)getActivity()).getSlidingMenu();
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		
 		view = initView(inflater);
 		return view;
 	}
@@ -44,9 +40,6 @@ public abstract class BaseFragment extends Fragment implements OnClickListener{
 	public View getRootView(){
 		return view;
 	}
-	
-	
-	
 	
 	/**
 	 * ≥ı ºªØview
