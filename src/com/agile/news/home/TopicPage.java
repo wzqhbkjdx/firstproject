@@ -7,6 +7,7 @@ import com.agile.news.TopicListActivity;
 import com.agile.news.adapter.TopicAdapter;
 import com.agile.news.base.BasePage;
 import com.agile.news.bean.NewsCenterCategories.NewsCategory;
+import com.agile.news.bean.NewsCenterCategory.CenterCategory;
 import com.agile.news.bean.TopicListBean;
 import com.agile.news.bean.TopicListBean.Topic;
 import com.agile.news.pullrefreshview.PullToRefreshBase;
@@ -34,9 +35,9 @@ import android.widget.ListView;
 
 public class TopicPage extends BasePage{
 	private String moreUrl;
-	private NewsCategory category;
+	private CenterCategory category;
 
-	public TopicPage(Context context, NewsCategory newsCategory) {
+	public TopicPage(Context context, CenterCategory newsCategory) {
 		super(context);
 		category = newsCategory;
 	}

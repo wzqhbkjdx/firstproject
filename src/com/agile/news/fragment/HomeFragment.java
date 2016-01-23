@@ -118,6 +118,7 @@ public class HomeFragment extends BaseFragment {
 
 				case R.id.rb_news_center:
 					// 全屏可以滑动出菜单
+					System.out.println("得到新闻菜单页面");
 					slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 					NewsCenterPage page = (NewsCenterPage) list.get(2);
 					list.get(2).onResume();

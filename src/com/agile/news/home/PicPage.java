@@ -3,6 +3,7 @@ package com.agile.news.home;
 import com.agile.news.R;
 import com.agile.news.base.BasePage;
 import com.agile.news.bean.NewsCenterCategories.NewsCategory;
+import com.agile.news.bean.NewsCenterCategory.CenterCategory;
 import com.lidroid.xutils.ViewUtils;
 
 import android.content.Context;
@@ -10,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 public class PicPage extends BasePage{
-	private NewsCategory category;
-	public PicPage(Context context, NewsCategory newsCategory) {
+	private CenterCategory category;
+	public PicPage(Context context, CenterCategory newsCategory) {
 		super(context);
 		category = newsCategory;
 	}

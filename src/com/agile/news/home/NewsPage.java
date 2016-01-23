@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 import com.agile.news.R;
 import com.agile.news.base.BasePage;
-import com.agile.news.bean.NewsCenterCategories.ChildNewsCate;
-import com.agile.news.bean.NewsCenterCategories.NewsCategory;
+import com.agile.news.bean.NewsCenterCategory.CenterCategory;
+import com.agile.news.bean.NewsCenterCategory.CenterCategoryItem;
 import com.agile.news.pagerindicator.TabPageIndicator;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 import android.content.Context;
+import android.opengl.Visibility;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -21,10 +22,9 @@ import android.view.ViewGroup;
 
 public class NewsPage extends BasePage{
 
-	private NewsCategory category;
+	private CenterCategory category;
 	
-	
-	public NewsPage(Context context, NewsCategory newsCategory) {
+	public NewsPage(Context context, CenterCategory newsCategory) {
 		super(context);
 		category = newsCategory;
 		// TODO Auto-generated constructor stub
@@ -53,7 +53,7 @@ public class NewsPage extends BasePage{
 	
 	private void initIndicator() {
 		pages.clear();
-		for(ChildNewsCate cate : category.children) {
+		for(CenterCategoryItem cate : category.children) {
 			pages.add(new ItemNewsPage(context,cate.url));
 		}
 		adapter = new NewsPagerAdapter(context,pages);
@@ -89,8 +89,11 @@ public class NewsPage extends BasePage{
 			}
 		});
 		pages.get(0).initData();
+		
 		indicator.setViewPager(pager);
+		
 		indicator.setCurrentItem(curIndex);
+		indicator.setVisibility(View.VISIBLE);//在indicator加载数据之前，setVisibility 为GONE，加载数据之后再设置为VISIBLE
 		isLoadSuccess = true;
 	}
 	

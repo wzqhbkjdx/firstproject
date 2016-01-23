@@ -15,9 +15,6 @@ public class NewsCenterCategories {
 		public String weekurl;
 		public String dayurl;
 		public ArrayList<ChildNewsCate> children = new ArrayList<NewsCenterCategories.ChildNewsCate>();
-		
-
-
 	}
 
 	public static class ChildNewsCate{
@@ -25,7 +22,5 @@ public class NewsCenterCategories {
 		public String title = "";
 		public int type;
 		public String url = "";
-
-
 	}
 }
